@@ -18,7 +18,7 @@ namespace UdeM.Controllers
         }
 
         protected override void CheckGrounded() {
-            _isGrounded = Physics2D.OverlapCircle(transform.position, 0.5f, _terrainLayer);
+            _isGrounded = Physics2D.OverlapCircle(transform.position, 0.01f, _terrainLayer);
         }
 
     }

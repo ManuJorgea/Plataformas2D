@@ -29,7 +29,7 @@ namespace UdeM.Controllers
         }
         protected virtual void Start () { }
         protected virtual void Update () {
-
+            CheckGrounded();
         }
         protected virtual void FixedUpdate() { }
         protected virtual void LateUpdate() { }

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1169803693}
   - component: {fileID: 1169803692}
   - component: {fileID: 1169803694}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
