@@ -28,12 +28,11 @@ namespace UdeM.Controllers
 
         }
         protected virtual void Start () { }
-        protected virtual void Update () {
-            CheckGrounded();
-        }
-        protected virtual void FixedUpdate() { }
-        protected virtual void LateUpdate() { }
 
-        protected abstract void CheckGrounded();
+        protected virtual void Update () { }
+
+        protected virtual void FixedUpdate() { }
+
+        protected virtual void LateUpdate() { }
     }
 }

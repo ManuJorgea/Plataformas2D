@@ -17,10 +17,21 @@ namespace UdeM.Controllers
             }
         }
 
-        protected override void CheckGrounded() {
-            _isGrounded = Physics2D.OverlapCircle(transform.position, 0.01f, _terrainLayer);
+        protected virtual void OnCollisionEnter2D (Collision2D collision)
+        {
+            if (collision.gameObject.layer == _terrainLayer)
+            {
+                _isGrounded = true;
+            }
         }
 
+        protected virtual void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == _terrainLayer)
+            {
+                _isGrounded = false;
+            }
+        }
     }
 
 }
