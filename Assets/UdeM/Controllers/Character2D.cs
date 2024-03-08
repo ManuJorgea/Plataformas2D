@@ -17,20 +17,28 @@ namespace UdeM.Controllers
             }
         }
 
-        protected virtual void OnCollisionEnter2D (Collision2D collision)
-        {
-            if (collision.gameObject.layer == _terrainLayer)
+
+        protected virtual void ActivateGrounded (Collision2D other, bool activate = true) {
+
+            if (other.gameObject.layer == _terrainLayer)
             {
                 _isGrounded = true;
             }
         }
 
+        protected virtual void OnCollisionEnter2D (Collision2D collision)
+        {
+            ActivateGrounded(collision);
+        }
+
+        protected virtual void OnCollisionStay2D(Collision2D collision)
+        {
+            ActivateGrounded(collision);
+        }
+
         protected virtual void OnCollisionExit2D(Collision2D collision)
         {
-            if (collision.gameObject.layer == _terrainLayer)
-            {
-                _isGrounded = false;
-            }
+            ActivateGrounded(collision, false);
         }
     }
 

@@ -34,5 +34,7 @@ namespace UdeM.Controllers
         protected virtual void FixedUpdate() { }
 
         protected virtual void LateUpdate() { }
+
+        protected virtual void Jump() { }
     }
 }
