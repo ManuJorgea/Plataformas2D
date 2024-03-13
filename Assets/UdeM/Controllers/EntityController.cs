@@ -7,6 +7,7 @@ namespace UdeM.Controllers
     public abstract class EntityController : MonoBehaviour
     {
         protected float _speed;
+        protected float _currentSpeed;
         protected float _jumpForce;
         protected float _gravityMod;
 

@@ -7,6 +7,36 @@ namespace UdeM.Controllers
     public class Character2D : EntityController
     {
         protected Rigidbody2D _rb2d;
+        protected bool _isFacingRight = true;
+
+
+        protected override void FixedUpdate() { 
+            base.FixedUpdate();
+
+            if (_currentSpeed > 0 ) {
+
+                _isFacingRight = true;           
+            
+            } else if (_currentSpeed < 0){
+
+                _isFacingRight = false;
+            
+            }
+            Flip();        
+        }
+
+        protected void Flip() {
+
+            if (_isFacingRight)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            } else {
+                transform.localScale = new Vector3(-1, 1, 1);
+
+            }
+        
+        
+        }
 
         protected override void Start() {
             base.Start();

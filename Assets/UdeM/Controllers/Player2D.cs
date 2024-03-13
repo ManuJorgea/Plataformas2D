@@ -21,6 +21,8 @@ namespace UdeM.Controllers {
 
             _axisH = Input.GetAxisRaw("Horizontal");
 
+            _currentSpeed = _axisH * _speed;
+
             if (_isGrounded && Input.GetButtonDown("Jump"))
             {
                 Jump();
@@ -30,7 +32,7 @@ namespace UdeM.Controllers {
         protected override void LateUpdate() {
             base.LateUpdate();
 
-            _rb2d.velocity = new Vector2(_axisH * _speed, _rb2d.velocity.y);
+            _rb2d.velocity = new Vector2(_currentSpeed, _rb2d.velocity.y);
         
         }
 
