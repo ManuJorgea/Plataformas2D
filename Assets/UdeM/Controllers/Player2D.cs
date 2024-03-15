@@ -27,13 +27,14 @@ namespace UdeM.Controllers {
             {
                 Jump();
             }
+
+            _rb2d.velocity = new Vector2(_currentSpeed, _rb2d.velocity.y);
+
         }
 
         protected override void LateUpdate() {
             base.LateUpdate();
 
-            _rb2d.velocity = new Vector2(_currentSpeed, _rb2d.velocity.y);
-        
         }
 
         protected override void Jump() {

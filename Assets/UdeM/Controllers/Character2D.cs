@@ -9,6 +9,12 @@ namespace UdeM.Controllers
         protected Rigidbody2D _rb2d;
         protected bool _isFacingRight = true;
 
+        protected override void LateUpdate() {  
+            base.LateUpdate();
+            _isFalling = (_rb2d.velocity.y < 0 && !_isGrounded); 
+        
+        }
+
 
         protected override void FixedUpdate() { 
             base.FixedUpdate();
@@ -52,7 +58,7 @@ namespace UdeM.Controllers
 
             if (other.gameObject.layer == _terrainLayer)
             {
-                _isGrounded = true;
+                _isGrounded = activate;
             }
         }
 

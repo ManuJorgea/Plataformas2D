@@ -14,6 +14,7 @@ namespace UdeM.Controllers
         protected LayerMask _terrainLayer;
 
         [SerializeField] protected bool _isGrounded;
+        [SerializeField] protected bool _isFalling;
 
 
         protected virtual void Awake() {

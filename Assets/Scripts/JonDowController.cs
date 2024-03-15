@@ -19,5 +19,13 @@ public class JonDowController : Player2D
         base.Update();
 
         _anim.SetBool("IsWalking",(_currentSpeed != 0));
+        _anim.SetBool("IsGrounded", _isGrounded);
+        _anim.SetBool("IsFalling", _isFalling);
+    }
+
+    protected override void Jump()
+    {
+        base.Jump();
+        _anim.SetTrigger("Jump");
     }
 }
