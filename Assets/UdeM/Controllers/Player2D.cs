@@ -11,7 +11,7 @@ namespace UdeM.Controllers {
         protected override void Awake()
         {
             base.Awake();
-            _jumpForce = 400F;
+            _jumpForce = 500F;
 
         }
         
