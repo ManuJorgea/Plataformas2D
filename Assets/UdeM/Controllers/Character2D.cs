@@ -31,7 +31,8 @@ namespace UdeM.Controllers
             Flip();        
         }
 
-        protected void Flip() {
+        protected void Flip()
+        {
 
             if (_isFacingRight)
             {

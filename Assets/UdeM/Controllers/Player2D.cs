@@ -28,6 +28,16 @@ namespace UdeM.Controllers {
                 Jump();
             }
 
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                Crouch(true);
+            }
+            else if (Input.GetKeyUp(KeyCode.C))
+            {
+
+                Crouch(false);
+            }
+
             _rb2d.velocity = new Vector2(_currentSpeed, _rb2d.velocity.y);
 
         }
@@ -44,5 +54,7 @@ namespace UdeM.Controllers {
 
 
         }
+
+
     }
 }

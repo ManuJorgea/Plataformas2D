@@ -10,11 +10,13 @@ namespace UdeM.Controllers
         protected float _currentSpeed;
         protected float _jumpForce;
         protected float _gravityMod;
+        
 
         protected LayerMask _terrainLayer;
 
         [SerializeField] protected bool _isGrounded;
         [SerializeField] protected bool _isFalling;
+        [SerializeField] public bool _isCrouching;
 
 
         protected virtual void Awake() {
@@ -22,6 +24,7 @@ namespace UdeM.Controllers
             _jumpForce = 10f;
             _gravityMod = 1f;
             _isGrounded = false;
+            _isCrouching = false;
 
             _terrainLayer = LayerMask.NameToLayer("Terrain");
             if ( _terrainLayer == -1) {
@@ -38,5 +41,7 @@ namespace UdeM.Controllers
         protected virtual void LateUpdate() { }
 
         protected virtual void Jump() { }
+
+        public virtual void Crouch(bool foxy) { }
     }
 }

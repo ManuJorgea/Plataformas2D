@@ -8,6 +8,7 @@ namespace UdeM.Controllers
     public class Enemy2DStandard : Enemy2D
     {
         protected GameObject _currentPiso;
+        
 
         protected override void Start()
         {
@@ -16,12 +17,18 @@ namespace UdeM.Controllers
             _speed = 5f;
             _direction = (Random.Range(-1, 1) > 0) ? 1 : -1;
 
+           
+
         }
 
         protected override void Update() {
             base.Update();
             CheckEdge();
+
+            
         }
+
+       
 
         protected override void OnCollisionEnter2D(Collision2D collision)
         {
@@ -56,6 +63,6 @@ namespace UdeM.Controllers
             _direction *= -1;
         }
 
-
+        
     }
 }
