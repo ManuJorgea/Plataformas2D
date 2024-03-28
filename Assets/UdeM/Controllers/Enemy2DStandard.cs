@@ -27,13 +27,18 @@ namespace UdeM.Controllers
 
             
         }
-
        
 
         protected override void OnCollisionEnter2D(Collision2D collision)
         {
+            if(collision.gameObject.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<JonDowController>().TomarDano(1, collision.GetContact(0).normal);
+            }
+
             base.OnCollisionEnter2D(collision);
-            _currentPiso = collision.collider.gameObject;        
+            _currentPiso = collision.collider.gameObject;
+            
         
         }
 
@@ -62,7 +67,5 @@ namespace UdeM.Controllers
         {
             _direction *= -1;
         }
-
-        
     }
 }

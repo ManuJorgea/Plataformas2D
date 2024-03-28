@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UdeM.Controllers;
 using UnityEngine;
 
 public class JonDowController : Player2D
 {
+    [SerializeField] private float vida = 3;
+
+    [SerializeField] private float tiempoPerdidaControl;
+
+    [SerializeField] private GameObject corazon1;
+    [SerializeField] private GameObject corazon2;
+    [SerializeField] private GameObject corazon3;
+
+
     private Animator _anim;
 
     protected override void Start() { 
@@ -35,5 +45,72 @@ public class JonDowController : Player2D
         base.Crouch(foxy);
         _isCrouching = foxy;
         _anim.SetBool("IsCrouching", true);
+    }
+
+    public void TomarDano(float dano)
+    {
+        vida -= dano;
+    }
+
+    public void TomarDano(float dano, Vector2 posicion)
+    {
+        vida -= dano;
+        _anim.SetTrigger("Hurt");
+
+        StartCoroutine(PerderControl());
+
+        StartCoroutine(DesactivarColision());
+
+        Rebote(posicion);
+
+        checkarVida();
+    }
+
+    private IEnumerator DesactivarColision()
+    {
+        Physics2D.IgnoreLayerCollision(0, 2, true);
+        yield return new WaitForSeconds(tiempoPerdidaControl);
+        Physics2D.IgnoreLayerCollision(0, 2, false);
+    }
+
+    private IEnumerator PerderControl()
+    {
+        permitirMov = false;
+
+        yield return new WaitForSeconds(tiempoPerdidaControl);
+
+        permitirMov = true;
+    }
+
+    public void checkarVida()
+    {
+        List<GameObject> vidas = new List<GameObject>();
+
+        vidas.Add(corazon1);
+        vidas.Add(corazon2);
+        vidas.Add(corazon3);
+
+        if (vida == 3)
+        {
+            foreach (GameObject cora in vidas)
+            {
+                cora.SetActive(true);
+            }
+        }
+        else if (vida == 2)
+        {
+            vidas[2].SetActive(false);
+        }
+        else if (vida == 1)
+        {
+            vidas[2].SetActive(false);
+            vidas[1].SetActive(false);
+        }
+        else if(vida == 0)
+        {
+            vidas[0].SetActive(false);
+            gameObject.SetActive(false);
+        }
+        
     }
 }

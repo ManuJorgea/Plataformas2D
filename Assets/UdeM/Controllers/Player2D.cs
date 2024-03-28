@@ -6,6 +6,11 @@ namespace UdeM.Controllers {
 
     public class Player2D : Character2D 
     {
+        public bool permitirMov = true;
+
+        [SerializeField] private Vector2 velocidadRebote;
+
+
         protected float _axisH;
 
         protected override void Awake()
@@ -19,26 +24,30 @@ namespace UdeM.Controllers {
         protected override void Update() {
             base.Update();
 
-            _axisH = Input.GetAxisRaw("Horizontal");
-
-            _currentSpeed = _axisH * _speed;
-
-            if (_isGrounded && Input.GetButtonDown("Jump"))
+            if(permitirMov)
             {
-                Jump();
-            }
+                _axisH = Input.GetAxisRaw("Horizontal");
 
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                Crouch(true);
-            }
-            else if (Input.GetKeyUp(KeyCode.C))
-            {
+                _currentSpeed = _axisH * _speed;
 
-                Crouch(false);
-            }
+                if (_isGrounded && Input.GetButtonDown("Jump"))
+                {
+                    Jump();
+                }
 
-            _rb2d.velocity = new Vector2(_currentSpeed, _rb2d.velocity.y);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    Crouch(true);
+                }
+                else if (Input.GetKeyUp(KeyCode.C))
+                {
+
+                    Crouch(false);
+                }
+
+                _rb2d.velocity = new Vector2(_currentSpeed, _rb2d.velocity.y);
+            }
+            
 
         }
 
@@ -52,9 +61,11 @@ namespace UdeM.Controllers {
 
             _rb2d.AddForce(Vector2.up * _jumpForce);
 
-
         }
 
-
+        public void Rebote(Vector2 puntoGolpe)
+        {
+            _rb2d.velocity = new Vector2(-velocidadRebote.x * puntoGolpe.x, velocidadRebote.y);
+        }
     }
 }
