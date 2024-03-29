@@ -6,12 +6,19 @@ namespace UdeM.Controllers
 {
     public class Character2D : EntityController
     {
+        [SerializeField] protected float velocidadEscalar;
+        protected bool permitirMov = true;
+
+        protected CapsuleCollider2D _capsuleCollider;
+        protected float gravedadInicial;
+        protected bool escalando;
+
         protected Rigidbody2D _rb2d;
         protected bool _isFacingRight = true;
 
         protected override void LateUpdate() {  
             base.LateUpdate();
-            _isFalling = (_rb2d.velocity.y < 0 && !_isGrounded); 
+            _isFalling = (_rb2d.velocity.y < 0 && !_isGrounded && !escalando); 
         
         }
 
@@ -52,6 +59,9 @@ namespace UdeM.Controllers
                 _rb2d = gameObject.AddComponent<Rigidbody2D>();
                 _rb2d.freezeRotation = true;
             }
+
+            _capsuleCollider = GetComponent<CapsuleCollider2D>();
+            gravedadInicial = _rb2d.gravityScale;
         }
 
 

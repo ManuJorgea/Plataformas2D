@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 5258730364599258795}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5258730364346378436
 BoxCollider2D:
@@ -122,6 +122,7 @@ MonoBehaviour:
   _isGrounded: 0
   _isFalling: 0
   _isCrouching: 0
+  velocidadEscalar: 0
 --- !u!1 &5258730364599258794
 GameObject:
   m_ObjectHideFlags: 0

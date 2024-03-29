@@ -32,6 +32,16 @@ public class JonDowController : Player2D
         _anim.SetBool("IsGrounded", _isGrounded);
         _anim.SetBool("IsFalling", _isFalling);
         _anim.SetBool("IsCrouching", _isCrouching);
+        _anim.SetBool("Climbing", escalando);
+
+        if(Mathf.Abs(_rb2d.velocity.y) > Mathf.Epsilon)
+        {
+            _anim.SetFloat("VelocityY", Mathf.Sign(_rb2d.velocity.y));
+        }
+        else
+        {
+            _anim.SetFloat("VelocityY", 0);
+        }
     }
 
     protected override void Jump()
@@ -57,9 +67,9 @@ public class JonDowController : Player2D
         vida -= dano;
         _anim.SetTrigger("Hurt");
 
-        StartCoroutine(PerderControl());
-
         StartCoroutine(DesactivarColision());
+
+        StartCoroutine(PerderControl());
 
         Rebote(posicion);
 
