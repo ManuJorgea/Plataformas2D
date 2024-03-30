@@ -8,6 +8,9 @@ namespace UdeM.Controllers {
     {
         [SerializeField] private Vector2 velocidadRebote;
 
+        protected CapsuleCollider2D _capsuleCollider;
+        protected BoxCollider2D _boxCollider;
+
         protected float _axisH;
         protected float _axisV;
 
@@ -15,10 +18,8 @@ namespace UdeM.Controllers {
         {
             base.Awake();
             _jumpForce = 500F;
+        }   
 
-        }
-        
-        
         protected override void Update() {
             base.Update();
 
@@ -38,12 +39,7 @@ namespace UdeM.Controllers {
 
                 if (Input.GetKeyDown(KeyCode.C))
                 {
-                    Crouch(true);
-                }
-                else if (Input.GetKeyUp(KeyCode.C))
-                {
-
-                    Crouch(false);
+                    Crouch();
                 }
 
                 _rb2d.velocity = new Vector2(_currentSpeed, _rb2d.velocity.y);

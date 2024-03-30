@@ -9,11 +9,11 @@ namespace UdeM.Controllers
         [SerializeField] protected float velocidadEscalar;
         protected bool permitirMov = true;
 
-        protected CapsuleCollider2D _capsuleCollider;
         protected float gravedadInicial;
         protected bool escalando;
 
         protected Rigidbody2D _rb2d;
+
         protected bool _isFacingRight = true;
 
         protected override void LateUpdate() {  
@@ -60,7 +60,6 @@ namespace UdeM.Controllers
                 _rb2d.freezeRotation = true;
             }
 
-            _capsuleCollider = GetComponent<CapsuleCollider2D>();
             gravedadInicial = _rb2d.gravityScale;
         }
 

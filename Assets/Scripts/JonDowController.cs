@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UdeM.Controllers;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JonDowController : Player2D
@@ -14,14 +15,21 @@ public class JonDowController : Player2D
     [SerializeField] private GameObject corazon2;
     [SerializeField] private GameObject corazon3;
 
-
     private Animator _anim;
+
+    [SerializeField] private Transform ceilController;
+    [SerializeField] private float distance;
+    RaycastHit2D ceilInfo;
 
     protected override void Start() { 
         base.Start();
 
         _anim = transform.Find("Animations").GetComponent<Animator>();
-    
+
+        _capsuleCollider = GetComponent<CapsuleCollider2D>();
+        _boxCollider = GetComponent<BoxCollider2D>();
+
+        _capsuleCollider.enabled = false;
     }
 
     protected override void Update()
@@ -42,6 +50,8 @@ public class JonDowController : Player2D
         {
             _anim.SetFloat("VelocityY", 0);
         }
+
+        ceilInfo = Physics2D.Raycast(ceilController.position, Vector2.up, distance);    
     }
 
     protected override void Jump()
@@ -50,11 +60,25 @@ public class JonDowController : Player2D
         _anim.SetTrigger("Jump");
     }
 
-    public override void Crouch(bool foxy)
+    public override void Crouch()
     {
-        base.Crouch(foxy);
-        _isCrouching = foxy;
-        _anim.SetBool("IsCrouching", true);
+        base.Crouch(); 
+
+        if (ceilInfo == false)
+        {
+            _isCrouching = !_isCrouching;
+
+            if (!_capsuleCollider.enabled)
+            {
+                _capsuleCollider.enabled = true;
+                _boxCollider.enabled = false;
+            }
+            else
+            {
+                _capsuleCollider.enabled = false;
+                _boxCollider.enabled = true;
+            }
+        }
     }
 
     public void TomarDano(float dano)
@@ -122,5 +146,12 @@ public class JonDowController : Player2D
             gameObject.SetActive(false);
         }
         
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawLine(ceilController.transform.position, ceilController.transform.position + Vector3.up * distance);
     }
 }

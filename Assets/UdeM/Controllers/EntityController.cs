@@ -42,6 +42,6 @@ namespace UdeM.Controllers
 
         protected virtual void Jump() { }
 
-        public virtual void Crouch(bool foxy) { }
+        public virtual void Crouch() { }
     }
 }
