@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UdeM.Controllers;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JonDowController : Player2D
 {
@@ -42,7 +43,7 @@ public class JonDowController : Player2D
         _anim.SetBool("IsCrouching", _isCrouching);
         _anim.SetBool("Climbing", escalando);
 
-        if(Mathf.Abs(_rb2d.velocity.y) > Mathf.Epsilon)
+        if (Mathf.Abs(_rb2d.velocity.y) > Mathf.Epsilon)
         {
             _anim.SetFloat("VelocityY", Mathf.Sign(_rb2d.velocity.y));
         }
@@ -143,9 +144,18 @@ public class JonDowController : Player2D
         else if(vida == 0)
         {
             vidas[0].SetActive(false);
-            gameObject.SetActive(false);
+            _rb2d.velocity = Vector3.zero;
+            _anim.SetTrigger("Died");
+
+            StartCoroutine(Morir());
         }
-        
+    }
+
+    IEnumerator Morir()
+    {
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene(0);
     }
 
     private void OnDrawGizmos()
