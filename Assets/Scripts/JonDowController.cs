@@ -71,11 +71,13 @@ public class JonDowController : Player2D
 
             if (!_capsuleCollider.enabled)
             {
+                _speed *= 0.5f;
                 _capsuleCollider.enabled = true;
                 _boxCollider.enabled = false;
             }
             else
             {
+                _speed *= 2;
                 _capsuleCollider.enabled = false;
                 _boxCollider.enabled = true;
             }
@@ -112,7 +114,7 @@ public class JonDowController : Player2D
     {
         permitirMov = false;
 
-        yield return new WaitForSeconds(tiempoPerdidaControl);
+        yield return new WaitForSeconds(tiempoPerdidaControl/2);
 
         permitirMov = true;
     }

@@ -70,7 +70,7 @@ namespace UdeM.Controllers {
 
         public void Escalar()
         {
-            if ((_axisV != 0 || escalando) && (_capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Escaleras"))))
+            if ((_axisV != 0 || escalando) && (_boxCollider.IsTouchingLayers(LayerMask.GetMask("Escaleras"))))
             {
                 Vector2 velocidadSubida = new Vector2(_rb2d.velocity.x, _axisV * velocidadEscalar);
 

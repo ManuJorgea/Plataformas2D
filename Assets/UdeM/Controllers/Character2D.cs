@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UdeM.Controllers
 {
@@ -75,6 +76,11 @@ namespace UdeM.Controllers
         protected virtual void OnCollisionEnter2D (Collision2D collision)
         {
             ActivateGrounded(collision);
+
+            if(collision.gameObject.CompareTag("ZonaMuerte"))
+            {
+                SceneManager.LoadScene(0);
+            }
         }
 
         protected virtual void OnCollisionStay2D(Collision2D collision)
