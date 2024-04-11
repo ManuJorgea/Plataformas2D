@@ -26,7 +26,7 @@ public class Frog : MonoBehaviour
                 {
                     try
                     {
-                        other.gameObject.GetComponent<JonDowController>().TomarDano(0.5f, other.GetContact(0).normal);
+                        other.gameObject.GetComponent<JonDowController>().TomarDano(1, other.GetContact(0).normal);
                     }
                     catch { }
                 }

@@ -73,13 +73,26 @@ namespace UdeM.Controllers
             }
         }
 
-        protected virtual void OnCollisionEnter2D (Collision2D collision)
+        protected virtual void OnCollisionEnter2D(Collision2D collision)
         {
             ActivateGrounded(collision);
 
-            if(collision.gameObject.CompareTag("ZonaMuerte"))
+            if (collision.gameObject.CompareTag("ZonaMuerte"))
             {
-                SceneManager.LoadScene(0);
+                Scene escenaActual = SceneManager.GetActiveScene();
+
+                SceneManager.LoadScene(escenaActual.buildIndex);
+            }
+        }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Cherry"))
+            {
+                Scene escenaActual = SceneManager.GetActiveScene();
+
+                SceneManager.LoadScene(escenaActual.buildIndex + 1);
+
             }
         }
 

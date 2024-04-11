@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TILES_Character2D.unity
+    path: Assets/Scenes/Level1.unity
     guid: 440c1e9c7c6426341961786554d2166f
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: a98daf898aaa9f545801dc694cb963be
   m_configObjects: {}
