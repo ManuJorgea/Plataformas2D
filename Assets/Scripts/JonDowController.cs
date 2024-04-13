@@ -52,6 +52,8 @@ public class JonDowController : Player2D
             _anim.SetFloat("VelocityY", 0);
         }
 
+        checkarVida();
+
         ceilInfo = Physics2D.Raycast(ceilController.position, Vector2.up, distance);    
     }
 
@@ -84,14 +86,12 @@ public class JonDowController : Player2D
         }
     }
 
-    public void TomarDano(float dano)
+    public void TomarDano(int dano, Vector2 posicion)
     {
         vida -= dano;
-    }
 
-    public void TomarDano(float dano, Vector2 posicion)
-    {
-        vida -= dano;
+        checkarVida();
+
         _anim.SetTrigger("Hurt");
 
         StartCoroutine(DesactivarColision());
@@ -100,7 +100,6 @@ public class JonDowController : Player2D
 
         Rebote(posicion);
 
-        checkarVida();
     }
 
     private IEnumerator DesactivarColision()
@@ -143,11 +142,11 @@ public class JonDowController : Player2D
             vidas[2].SetActive(false);
             vidas[1].SetActive(false);
         }
-        else if(vida == 0)
+        else if(vida <= 0)
         {
+            _anim.SetTrigger("Died");
             vidas[0].SetActive(false);
             _rb2d.velocity = Vector3.zero;
-            _anim.SetTrigger("Died");
 
             StartCoroutine(Morir());
         }
@@ -157,7 +156,7 @@ public class JonDowController : Player2D
     {
         yield return new WaitForSeconds(2);
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnDrawGizmos()
