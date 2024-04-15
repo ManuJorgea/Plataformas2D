@@ -40,13 +40,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1717708659108106085}
-  - component: {fileID: 2067506603}
-  - component: {fileID: 2067506602}
   - component: {fileID: 2067506601}
   - component: {fileID: 5457900383380097417}
   - component: {fileID: 2067506600}
   - component: {fileID: 2067506604}
-  m_Layer: 2
+  - component: {fileID: 2067506603}
+  - component: {fileID: 1508725088677290168}
+  m_Layer: 0
   m_Name: Oposuum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,36 +68,8 @@ Transform:
   - {fileID: 1129439386}
   - {fileID: 4335099662752498337}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2067506603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962724846373877277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56417362e09db114db615fbba607b513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidad: 7
-  groundController: {fileID: 1129439386}
-  distance: 1
-  movingToRight: 1
---- !u!114 &2067506602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962724846373877277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11bcafea90784b64b9f174a6c43ea94a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &2067506601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -242,6 +214,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2067506603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962724846373877277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56417362e09db114db615fbba607b513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 3
+  groundController: {fileID: 1129439386}
+  distance: 1
+  movingToRight: 1
+--- !u!114 &1508725088677290168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962724846373877277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce14bbd2991337342ab447cc39b23e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8384089110380656762
 GameObject:
   m_ObjectHideFlags: 0

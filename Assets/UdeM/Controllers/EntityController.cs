@@ -6,7 +6,7 @@ namespace UdeM.Controllers
 {
     public abstract class EntityController : MonoBehaviour
     {
-        protected float _speed;
+        [SerializeField] protected float _speed = 10f;
         protected float _currentSpeed;
         protected float _jumpForce;
         protected float _gravityMod;
@@ -20,7 +20,6 @@ namespace UdeM.Controllers
 
 
         protected virtual void Awake() {
-            _speed = 10f;
             _jumpForce = 10f;
             _gravityMod = 1f;
             _isGrounded = false;
