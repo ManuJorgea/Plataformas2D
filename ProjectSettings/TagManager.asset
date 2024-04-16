@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - ZonaMuerte
   - Cherry
+  - Flag
   layers:
   - Default
   - TransparentFX

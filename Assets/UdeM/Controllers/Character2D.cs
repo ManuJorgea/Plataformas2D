@@ -15,7 +15,8 @@ namespace UdeM.Controllers
 
         protected Rigidbody2D _rb2d;
 
-        protected bool _isFacingRight = true;
+        [SerializeField] protected bool _isFacingRight = true;
+        [SerializeField] protected bool _isJumping;
 
         protected override void LateUpdate() {  
             base.LateUpdate();
@@ -25,23 +26,22 @@ namespace UdeM.Controllers
 
 
         protected override void FixedUpdate() { 
-            base.FixedUpdate();
+            //base.FixedUpdate();
 
-            if (_currentSpeed > 0 ) {
+            //if (_currentSpeed > 0 ) {
 
-                _isFacingRight = true;           
+            //    _isFacingRight = true;           
             
-            } else if (_currentSpeed < 0){
+            //} else if (_currentSpeed < 0){
 
-                _isFacingRight = false;
+            //    _isFacingRight = false;
             
-            }
+            //}
             Flip();        
         }
 
         protected void Flip()
         {
-
             if (_isFacingRight)
             {
                 transform.localScale = new Vector3(1, 1, 1);
@@ -49,8 +49,6 @@ namespace UdeM.Controllers
                 transform.localScale = new Vector3(-1, 1, 1);
 
             }
-        
-        
         }
 
         protected override void Start() {
@@ -70,6 +68,11 @@ namespace UdeM.Controllers
             if (other.gameObject.layer == _terrainLayer)
             {
                 _isGrounded = activate;
+
+                if(_isJumping == true)
+                {
+                    _isJumping = false;
+                }
             }
         }
 
@@ -92,7 +95,10 @@ namespace UdeM.Controllers
                 Scene escenaActual = SceneManager.GetActiveScene();
 
                 SceneManager.LoadScene(escenaActual.buildIndex + 1);
-
+            }
+            if (collision.gameObject.CompareTag("Flag"))
+            {
+                SceneManager.LoadScene(0);
             }
         }
 

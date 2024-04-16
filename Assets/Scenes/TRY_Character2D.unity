@@ -708,7 +708,7 @@ SpriteRenderer:
   m_Size: {x: 0.69, y: 0.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1013306747
@@ -12565,4 +12565,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b504568801f444a897615fa3f7ebb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 10
   _isGrounded: 0
+  _isFalling: 0
+  _isCrouching: 0
+  velocidadEscalar: 0
+  _isFacingRight: 1
+  _isJumping: 0
+  velocidadRebote: {x: 0, y: 0}
+  vida: 3
+  tiempoPerdidaControl: 0
+  corazon1: {fileID: 0}
+  corazon2: {fileID: 0}
+  corazon3: {fileID: 0}
+  ceilController: {fileID: 0}
+  distance: 0

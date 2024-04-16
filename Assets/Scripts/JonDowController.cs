@@ -42,6 +42,7 @@ public class JonDowController : Player2D
         _anim.SetBool("IsFalling", _isFalling);
         _anim.SetBool("IsCrouching", _isCrouching);
         _anim.SetBool("Climbing", escalando);
+        _anim.SetBool("IsJumping", _isJumping);
 
         if (Mathf.Abs(_rb2d.velocity.y) > Mathf.Epsilon)
         {
@@ -60,7 +61,11 @@ public class JonDowController : Player2D
     protected override void Jump()
     {
         base.Jump();
+        _rb2d.AddForce(Vector2.up * _jumpForce);
+
         _anim.SetTrigger("Jump");
+
+        _isJumping = true;
     }
 
     public override void Crouch()
@@ -86,7 +91,7 @@ public class JonDowController : Player2D
         }
     }
 
-    public void TomarDano(int dano, Vector2 posicion)
+    public void TomarDano(float dano, Vector2 posicion)
     {
         vida -= dano;
 

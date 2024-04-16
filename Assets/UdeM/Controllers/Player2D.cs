@@ -27,7 +27,16 @@ namespace UdeM.Controllers {
             {
                 _axisH = Input.GetAxisRaw("Horizontal");
                 _axisV = Input.GetAxisRaw("Vertical");
-                
+
+                if(_axisH > 0)
+                {
+                    _isFacingRight = true;
+                }
+                else if(_axisH < 0)
+                {
+                    _isFacingRight = false;
+                }
+
                 Escalar();
 
                 _currentSpeed = _axisH * _speed;
@@ -48,13 +57,6 @@ namespace UdeM.Controllers {
 
         protected override void LateUpdate() {
             base.LateUpdate();
-
-        }
-
-        protected override void Jump() {
-            base.Jump();
-
-            _rb2d.AddForce(Vector2.up * _jumpForce);
 
         }
 

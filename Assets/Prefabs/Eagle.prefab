@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 484173208}
   - component: {fileID: 5258730364346378439}
   - component: {fileID: 484173209}
+  - component: {fileID: 4853412016267603846}
   m_Layer: 2
   m_Name: Eagle
   m_TagString: Untagged
@@ -145,6 +146,18 @@ MonoBehaviour:
   groundController: {fileID: 846187788}
   distance: 1
   movingToRight: 1
+--- !u!114 &4853412016267603846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5258730364346378426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6783ab9d1ee10940869dcd9a8e00968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5258730364599258794
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +169,6 @@ GameObject:
   - component: {fileID: 5258730364599258795}
   - component: {fileID: 5258730364599258792}
   - component: {fileID: 5258730364599258793}
-  - component: {fileID: 8637556236260730453}
   m_Layer: 2
   m_Name: CapsuleDow
   m_TagString: Untagged
@@ -251,15 +263,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &8637556236260730453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5258730364599258794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6783ab9d1ee10940869dcd9a8e00968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

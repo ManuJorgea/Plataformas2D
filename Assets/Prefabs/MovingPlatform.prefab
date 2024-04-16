@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 1853618043578901165}
   - component: {fileID: 1853618043578901164}
   - component: {fileID: 1853618043578901167}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PlataformaMovil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 1853618043578901166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -10.083969, y: -2.663466, z: -1.6931485}
-  m_LocalScale: {x: 2.3325868, y: 1.221, z: 1.221}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4259328754248774911}
@@ -307,5 +307,5 @@ Transform:
   - {fileID: 1853618042973243691}
   - {fileID: 1853618042929481472}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1129439386}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: groundController
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2067506604}
   - component: {fileID: 2067506603}
   - component: {fileID: 1508725088677290168}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Oposuum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ Transform:
   - {fileID: 1129439386}
   - {fileID: 4335099662752498337}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2067506601
 SpriteRenderer:
@@ -251,7 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4335099662752498337}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: groundController
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
