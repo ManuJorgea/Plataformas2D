@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
 
         rb.velocity = new Vector2(velocidad, rb.velocity.y);
 
+        // si el rayo no detecta suelo retorna false y el enemigo da la vuelta
         if(groundInfo == false)
         {
             Turn();

@@ -44749,6 +44749,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1853618043578901164, guid: a11007022bc66c54e9f6c6eaffa73969, type: 3}
+      propertyPath: m_Size.x
+      value: 2.6817665
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853618043578901164, guid: a11007022bc66c54e9f6c6eaffa73969, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.008493423
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853618043578901167, guid: a11007022bc66c54e9f6c6eaffa73969, type: 3}
+      propertyPath: velMov
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853618043578901167, guid: a11007022bc66c54e9f6c6eaffa73969, type: 3}
+      propertyPath: puntosMov.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4259328754248774911, guid: a11007022bc66c54e9f6c6eaffa73969, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -44798,7 +44814,8 @@ PrefabInstance:
       value: MovingPlatform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1853618042929481475, guid: a11007022bc66c54e9f6c6eaffa73969, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a11007022bc66c54e9f6c6eaffa73969, type: 3}
@@ -44883,6 +44900,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1790976883, guid: 1e105a3555b7f04458fbb5456de81da0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1790976887, guid: 1e105a3555b7f04458fbb5456de81da0, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -44902,6 +44923,10 @@ PrefabInstance:
     - target: {fileID: 3840159854423717431, guid: 1e105a3555b7f04458fbb5456de81da0, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840159854423717432, guid: 1e105a3555b7f04458fbb5456de81da0, type: 3}
+      propertyPath: _speed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3840159854423717432, guid: 1e105a3555b7f04458fbb5456de81da0, type: 3}
       propertyPath: corazon1

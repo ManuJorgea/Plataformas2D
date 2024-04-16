@@ -80,6 +80,7 @@ namespace UdeM.Controllers
         {
             ActivateGrounded(collision);
 
+            // verifica si el trigger que toco tiene el tag ZonaMuerte, entonces recarga la escena actual
             if (collision.gameObject.CompareTag("ZonaMuerte"))
             {
                 Scene escenaActual = SceneManager.GetActiveScene();
@@ -90,12 +91,14 @@ namespace UdeM.Controllers
 
         public void OnTriggerEnter2D(Collider2D collision)
         {
+            // verifica si el trigger que toco tiene el tag cherry, entonces pasa a la siguiente escena
             if (collision.gameObject.CompareTag("Cherry"))
             {
                 Scene escenaActual = SceneManager.GetActiveScene();
 
                 SceneManager.LoadScene(escenaActual.buildIndex + 1);
             }
+            // verifica si el trigger que toco tiene el tag Flag, entonces vuelve al menu
             if (collision.gameObject.CompareTag("Flag"))
             {
                 SceneManager.LoadScene(0);
